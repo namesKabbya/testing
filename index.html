@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Heaven, Freebies</title>
+  <style>
+    /* 🪐 Base layout */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      gap: 1.5rem;
+      background: radial-gradient(circle at top, #1b2735, #090a0f 80%);
+      color: #eee;
+      position: relative;
+    }
+
+    /* 🌟 Layer 1: Twinkling Stars */
+    .stars, .stars2, .stars3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent url('https://i.imgur.com/9h0Q2wS.png') repeat;
+      z-index: 0;
+    }
+
+    /* ✨ Different speeds for parallax movement */
+    .stars {
+      animation: drift 60s linear infinite;
+      opacity: 0.4;
+    }
+    .stars2 {
+      animation: drift 100s linear infinite reverse;
+      opacity: 0.3;
+    }
+    .stars3 {
+      animation: drift 150s linear infinite;
+      opacity: 0.2;
+    }
+
+    @keyframes drift {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
+    }
+
+    /* 🌌 Floating Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* 🌠 Title */
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px #8ab4f8, 0 0 25px #5a73ff;
+      letter-spacing: 1px;
+      z-index: 1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* ✨ Buttons */
+    a {
+      font-size: 1.8rem;
+      color: #8ab4f8;
+      text-decoration: none;
+      border: 2px solid #8ab4f8;
+      padding: 0.7rem 2rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(138, 180, 248, 0.4);
+      z-index: 1;
+      backdrop-filter: blur(5px);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    /* Slight delay for second button for natural floating */
+    a:nth-of-type(2) {
+      animation-delay: 2s;
+    }
+
+    /* 💫 Hover glow */
+    a:hover {
+      background: #8ab4f8;
+      color: #0d1117;
+      box-shadow: 0 0 30px #8ab4f8, 0 0 60px #8ab4f8;
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+<body>
+  <!-- 🌌 Star layers -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <!-- 🌠 Content -->
+  <h1>🌌 Welcome to Heaven, Freebies 🌠</h1>
+  <a href="https://moviebox.ph" target="_blank">🎬 Watch Movies or Dramas</a>
+  <a href="https://tv-shihab.xyz/" target="_blank">⚽ Watch Sports</a>
+</body>
+</html>
