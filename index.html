@@ -3,20 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Heaven 🌌</title>
+  <title>Welcome to Heaven (made by kabbya)</title>
   <style>
     body {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
       overflow: hidden;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
       font-family: 'Segoe UI', Arial, sans-serif;
       color: #eee;
       text-align: center;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    }
+
+    .aurora {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: linear-gradient(120deg, #003366, #330066, #001a33, #330033, #001a1a);
+      background-size: 200% 200%;
+      animation: auroraFlow 40s ease-in-out infinite;
+      filter: blur(120px);
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    @keyframes auroraFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .stars, .stars2, .stars3 {
@@ -27,7 +47,6 @@
       left: 0;
       background-repeat: repeat;
       background-size: 400px 400px;
-      animation: moveStars 300s linear infinite;
       pointer-events: none;
     }
 
@@ -38,7 +57,6 @@
         radial-gradient(1px 1px at 200px 180px, rgba(255,255,255,0.9), transparent),
         radial-gradient(1px 1px at 300px 250px, rgba(255,255,255,0.5), transparent);
       opacity: 0.7;
-      animation-duration: 400s;
       animation: moveStars 400s linear infinite, twinkle 6s ease-in-out infinite alternate;
     }
 
@@ -48,7 +66,6 @@
         radial-gradient(2px 2px at 160px 200px, rgba(255,255,255,0.5), transparent),
         radial-gradient(2px 2px at 260px 300px, rgba(255,255,255,0.9), transparent);
       opacity: 0.5;
-      animation-duration: 300s;
       animation: moveStars 300s linear infinite, twinkle 8s ease-in-out infinite alternate;
     }
 
@@ -58,20 +75,12 @@
         radial-gradient(1.5px 1.5px at 200px 400px, rgba(255,255,255,0.5), transparent),
         radial-gradient(1.5px 1.5px at 300px 250px, rgba(255,255,255,0.9), transparent);
       opacity: 0.3;
-      animation-duration: 500s;
       animation: moveStars 500s linear infinite, twinkle 10s ease-in-out infinite alternate;
     }
 
-    @keyframes moveStars {
-      from { background-position: 0 0; }
-      to { background-position: -10000px 5000px; }
-    }
-
-    @keyframes twinkle {
-      0% { opacity: 0.6; }
-      50% { opacity: 1; }
-      100% { opacity: 0.5; }
-    }
+    @keyframes moveStars { from { background-position: 0 0; } to { background-position: -10000px 5000px; } }
+    @keyframes twinkle { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
 
     a {
       font-size: 2rem;
@@ -84,43 +93,21 @@
       z-index: 1;
       position: relative;
       backdrop-filter: blur(2px);
+      animation: float 4s ease-in-out infinite;
     }
 
-    a.movies {
-      color: #4da6ff;
-      border-color: #4da6ff;
-      box-shadow: 0 0 15px #4da6ff55;
-    }
-    a.movies:hover {
-      background: #4da6ff;
-      color: #111;
-      box-shadow: 0 0 35px #4da6ff;
-      transform: scale(1.1);
-    }
+    a:nth-child(2) { animation-delay: 0s; }
+    a:nth-child(3) { animation-delay: 1s; }
+    a:nth-child(4) { animation-delay: 2s; }
 
-    a.sports {
-      color: #00ff99;
-      border-color: #00ff99;
-      box-shadow: 0 0 15px #00ff9955;
-    }
-    a.sports:hover {
-      background: #00ff99;
-      color: #111;
-      box-shadow: 0 0 35px #00ff99;
-      transform: scale(1.1);
-    }
+    a.movies { color: #4da6ff; border-color: #4da6ff; box-shadow: 0 0 15px #4da6ff55; }
+    a.movies:hover { background: #4da6ff; color: #111; box-shadow: 0 0 35px #4da6ff; transform: scale(1.1); }
 
-    a.anime {
-      color: #ff66cc;
-      border-color: #ff66cc;
-      box-shadow: 0 0 15px #ff66cc55;
-    }
-    a.anime:hover {
-      background: #ff66cc;
-      color: #111;
-      box-shadow: 0 0 35px #ff66cc;
-      transform: scale(1.1);
-    }
+    a.sports { color: #00ff99; border-color: #00ff99; box-shadow: 0 0 15px #00ff9955; }
+    a.sports:hover { background: #00ff99; color: #111; box-shadow: 0 0 35px #00ff99; transform: scale(1.1); }
+
+    a.anime { color: #ff66cc; border-color: #ff66cc; box-shadow: 0 0 15px #ff66cc55; }
+    a.anime:hover { background: #ff66cc; color: #111; box-shadow: 0 0 35px #ff66cc; transform: scale(1.1); }
 
     h1 {
       font-size: 2.5rem;
@@ -132,14 +119,49 @@
       z-index: 2;
     }
 
-    @keyframes glowTitle {
-      from { text-shadow: 0 0 15px #4da6ff55, 0 0 25px #4da6ff33; }
-      to { text-shadow: 0 0 25px #ff66ccaa, 0 0 45px #00ff99aa; }
+    @keyframes glowTitle { from { text-shadow: 0 0 15px #4da6ff55, 0 0 25px #4da6ff33; } to { text-shadow: 0 0 25px #ff66ccaa, 0 0 45px #00ff99aa; } }
+
+    .about-me {
+      z-index: 2;
+      color: #fff;
+      text-align: center;
+      margin-top: 30px;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .about-me h2 {
+      font-size: 2rem;
+      color: #ffcc00;
+      text-shadow: 0 0 15px #ffcc0055;
+      margin-bottom: 10px;
+    }
+
+    .about-me p { font-size: 1.2rem; margin-bottom: 15px; }
+
+    .about-me a {
+      display: inline-block;
+      margin: 5px 10px;
+      font-size: 1.5rem;
+      color: #4da6ff;
+      border: 2px solid #4da6ff;
+      padding: 0.4rem 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 0 10px #4da6ff55;
+    }
+
+    .about-me a:hover {
+      background: #4da6ff;
+      color: #111;
+      box-shadow: 0 0 30px #4da6ff;
+      transform: scale(1.1);
     }
 
   </style>
 </head>
 <body>
+  <div class="aurora"></div>
   <div class="stars"></div>
   <div class="stars2"></div>
   <div class="stars3"></div>
@@ -150,5 +172,12 @@
   <a class="sports" href="https://tv-shihab.xyz/">⚽ Watch Sports</a>
   <a class="anime" href="https://animepahe.si/">🎌 Watch Anime</a>
 
+  <div class="about-me">
+    <h2>About Me</h2>
+    <p>Hi! I’m Kabbya Chatterjee. Connect with me:</p>
+    <a href="https://www.facebook.com/kabbya.chatterjee.none?rdid=Er3F8weAjvemu08r&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16xZNatAer%2F#" target="_blank">📘 Facebook</a>
+    <a href="https://www.linkedin.com/in/kabbya-chatterjee/" target="_blank">💼 LinkedIn</a>
+    <a href="https://www.instagram.com/codex_chronicles?igsh=YXZ4NHp5anB5Z2s4" target="_blank">📸 Instagram</a>
+  </div>
 </body>
 </html>
