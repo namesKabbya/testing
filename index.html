@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Heaven, Freebies</title>
   <style>
-    /* 🪐 Base layout */
     body {
       display: flex;
       flex-direction: column;
@@ -21,21 +20,19 @@
       position: relative;
     }
 
-    /* 🌟 Layer 1: Twinkling Stars */
     .stars, .stars2, .stars3 {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: transparent url('https://i.imgur.com/9h0Q2wS.png') repeat;
+      background: transparent url('https://i.imgur.com/Vc5p9GU.png') repeat;
       z-index: 0;
     }
 
-    /* ✨ Different speeds for parallax movement */
     .stars {
       animation: drift 60s linear infinite;
-      opacity: 0.4;
+      opacity: 0.45;
     }
     .stars2 {
       animation: drift 100s linear infinite reverse;
@@ -51,13 +48,11 @@
       to { background-position: -10000px 5000px; }
     }
 
-    /* 🌌 Floating Animation */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
 
-    /* 🌠 Title */
     h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
@@ -67,7 +62,6 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    /* ✨ Buttons */
     a {
       font-size: 1.8rem;
       color: #8ab4f8;
@@ -82,12 +76,10 @@
       animation: float 5s ease-in-out infinite;
     }
 
-    /* Slight delay for second button for natural floating */
     a:nth-of-type(2) {
       animation-delay: 2s;
     }
 
-    /* 💫 Hover glow */
     a:hover {
       background: #8ab4f8;
       color: #0d1117;
@@ -97,14 +89,13 @@
   </style>
 </head>
 <body>
-  <!-- 🌌 Star layers -->
   <div class="stars"></div>
   <div class="stars2"></div>
   <div class="stars3"></div>
 
-  <!-- 🌠 Content -->
   <h1>🌌 Welcome to Heaven, Freebies 🌠</h1>
   <a href="https://moviebox.ph" target="_blank">🎬 Watch Movies or Dramas</a>
   <a href="https://tv-shihab.xyz/" target="_blank">⚽ Watch Sports</a>
+  <a href="https://animepahe.si/" target="_blank">🎌 Watch Anime</a>
 </body>
 </html>
