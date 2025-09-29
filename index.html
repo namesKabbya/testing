@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Heaven, Freebies</title>
+  <title>Welcome to Heaven 🌌</title>
   <style>
     body {
       display: flex;
@@ -12,80 +12,131 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      font-family: 'Poppins', sans-serif;
       overflow: hidden;
-      gap: 1.5rem;
-      background: radial-gradient(circle at top, #1b2735, #090a0f 80%);
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
       color: #eee;
-      position: relative;
+      text-align: center;
     }
 
     .stars, .stars2, .stars3 {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      background: transparent url('https://i.imgur.com/Vc5p9GU.png') repeat;
-      z-index: 0;
+      top: 0;
+      left: 0;
+      background-repeat: repeat;
+      background-size: 400px 400px;
+      animation: moveStars 300s linear infinite;
+      pointer-events: none;
     }
 
     .stars {
-      animation: drift 60s linear infinite;
-      opacity: 0.45;
-    }
-    .stars2 {
-      animation: drift 100s linear infinite reverse;
-      opacity: 0.3;
-    }
-    .stars3 {
-      animation: drift 150s linear infinite;
-      opacity: 0.2;
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 200px 180px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 300px 250px, rgba(255,255,255,0.5), transparent);
+      opacity: 0.7;
+      animation-duration: 400s;
+      animation: moveStars 400s linear infinite, twinkle 6s ease-in-out infinite alternate;
     }
 
-    @keyframes drift {
+    .stars2 {
+      background-image:
+        radial-gradient(2px 2px at 60px 100px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 160px 200px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(2px 2px at 260px 300px, rgba(255,255,255,0.9), transparent);
+      opacity: 0.5;
+      animation-duration: 300s;
+      animation: moveStars 300s linear infinite, twinkle 8s ease-in-out infinite alternate;
+    }
+
+    .stars3 {
+      background-image:
+        radial-gradient(1.5px 1.5px at 100px 150px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1.5px 1.5px at 200px 400px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1.5px 1.5px at 300px 250px, rgba(255,255,255,0.9), transparent);
+      opacity: 0.3;
+      animation-duration: 500s;
+      animation: moveStars 500s linear infinite, twinkle 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes moveStars {
       from { background-position: 0 0; }
       to { background-position: -10000px 5000px; }
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 15px #8ab4f8, 0 0 25px #5a73ff;
-      letter-spacing: 1px;
-      z-index: 1;
-      animation: float 6s ease-in-out infinite;
+    @keyframes twinkle {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
     }
 
     a {
-      font-size: 1.8rem;
-      color: #8ab4f8;
+      font-size: 2rem;
       text-decoration: none;
-      border: 2px solid #8ab4f8;
-      padding: 0.7rem 2rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(138, 180, 248, 0.4);
+      border: 2px solid;
+      padding: 0.6rem 1.4rem;
+      border-radius: 14px;
+      margin: 15px;
+      transition: all 0.4s ease;
       z-index: 1;
-      backdrop-filter: blur(5px);
-      animation: float 5s ease-in-out infinite;
+      position: relative;
+      backdrop-filter: blur(2px);
     }
 
-    a:nth-of-type(2) {
-      animation-delay: 2s;
+    a.movies {
+      color: #4da6ff;
+      border-color: #4da6ff;
+      box-shadow: 0 0 15px #4da6ff55;
+    }
+    a.movies:hover {
+      background: #4da6ff;
+      color: #111;
+      box-shadow: 0 0 35px #4da6ff;
+      transform: scale(1.1);
     }
 
-    a:hover {
-      background: #8ab4f8;
-      color: #0d1117;
-      box-shadow: 0 0 30px #8ab4f8, 0 0 60px #8ab4f8;
-      transform: scale(1.08);
+    a.sports {
+      color: #00ff99;
+      border-color: #00ff99;
+      box-shadow: 0 0 15px #00ff9955;
     }
+    a.sports:hover {
+      background: #00ff99;
+      color: #111;
+      box-shadow: 0 0 35px #00ff99;
+      transform: scale(1.1);
+    }
+
+    a.anime {
+      color: #ff66cc;
+      border-color: #ff66cc;
+      box-shadow: 0 0 15px #ff66cc55;
+    }
+    a.anime:hover {
+      background: #ff66cc;
+      color: #111;
+      box-shadow: 0 0 35px #ff66cc;
+      transform: scale(1.1);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 0 0 15px #ffffff55;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+      animation: glowTitle 3s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    @keyframes glowTitle {
+      from { text-shadow: 0 0 15px #4da6ff55, 0 0 25px #4da6ff33; }
+      to { text-shadow: 0 0 25px #ff66ccaa, 0 0 45px #00ff99aa; }
+    }
+
   </style>
 </head>
 <body>
@@ -93,9 +144,11 @@
   <div class="stars2"></div>
   <div class="stars3"></div>
 
-  <h1>🌌 Welcome to Heaven, Freebies 🌠</h1>
-  <a href="https://moviebox.ph" target="_blank">🎬 Watch Movies or Dramas</a>
-  <a href="https://tv-shihab.xyz/" target="_blank">⚽ Watch Sports</a>
-  <a href="https://animepahe.si/" target="_blank">🎌 Watch Anime</a>
+  <h1> Welcome to Heaven, Freebies </h1>
+
+  <a class="movies" href="https://moviebox.ph">🎬 Watch Movies / Dramas</a>
+  <a class="sports" href="https://tv-shihab.xyz/">⚽ Watch Sports</a>
+  <a class="anime" href="https://animepahe.si/">🎌 Watch Anime</a>
+
 </body>
 </html>
